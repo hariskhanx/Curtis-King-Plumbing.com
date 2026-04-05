@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curtis King Plumbing | Sevierville, TN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #0f1f35;
+  --navy-card: #132240;
+  --steel: #1a3356;
+  --copper: #c17f3a;
+  --copper-light: #d9954d;
+  --gold: #f0b84a;
+  --cream: #f4ede0;
+  --white: #ffffff;
+  --gray: #7a90aa;
+  --light: #c8d8e8;
+  --red: #e05252;
+  --red-bg: #1a0c0c;
+  --green: #4caf84;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 56px;
+  background:rgba(10,22,40,0.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(193,127,58,0.18);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;}
+.logo-mark{
+  width:40px;height:40px;border-radius:8px;
+  background:linear-gradient(135deg,var(--copper),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.logo-text-top{font-family:'Fraunces',serif;font-weight:700;font-size:15px;color:var(--white);letter-spacing:.3px;}
+.logo-text-bot{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;color:var(--copper-light);text-transform:uppercase;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--light);text-decoration:none;transition:color .25s;cursor:pointer;}
+.nav-links a:hover{color:var(--copper-light);}
+.nav-cta{
+  background:linear-gradient(135deg,var(--copper),var(--gold));
+  color:var(--navy) !important;padding:10px 22px !important;border-radius:5px;
+  font-weight:600 !important;letter-spacing:1px !important;
+}
+.nav-cta:hover{box-shadow:0 6px 24px rgba(193,127,58,.45);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px;}
+#mobileMenu{display:none;position:fixed;top:73px;left:0;right:0;background:rgba(10,22,40,.98);z-index:999;padding:24px 28px;border-bottom:1px solid rgba(193,127,58,.15);}
+#mobileMenu ul{list-style:none;display:flex;flex-direction:column;gap:20px;}
+#mobileMenu a{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--light);text-decoration:none;cursor:pointer;}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;padding-top:73px;}
+.page.active{display:block;}
+
+/* ── SHARED ── */
+.section{padding:96px 56px;}
+.lbl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--copper-light);margin-bottom:14px;}
+.h1{font-family:'Fraunces',serif;font-size:clamp(44px,5.5vw,78px);font-weight:900;line-height:1.0;color:var(--white);}
+.h2{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,54px);font-weight:700;line-height:1.15;color:var(--white);}
+.h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.accent{background:linear-gradient(135deg,var(--copper),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.rule{width:52px;height:3px;background:linear-gradient(90deg,var(--copper),var(--gold));border-radius:2px;margin:22px 0;}
+.body-text{font-size:16px;font-weight:300;color:var(--gray);line-height:1.85;}
+.btn{display:inline-block;padding:15px 34px;border-radius:5px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500;cursor:pointer;border:none;transition:all .25s;text-decoration:none;}
+.btn-p{background:linear-gradient(135deg,var(--copper),var(--gold));color:var(--navy);}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(193,127,58,.4);}
+.btn-o{background:transparent;color:var(--cream);border:1px solid rgba(244,237,224,.25);}
+.btn-o:hover{border-color:var(--copper-light);color:var(--copper-light);}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 56px 80px;
+  position:relative;z-index:2;
+}
+.hero-right{
+  position:relative;overflow:hidden;
+  background:var(--navy-mid);
+}
+.hero-right-inner{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 60% 40%,rgba(30,51,86,.9),transparent),
+    linear-gradient(160deg,var(--navy-mid),var(--steel));
+  display:flex;align-items:center;justify-content:center;
+}
+.pipe-art{opacity:.18;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(193,127,58,.12);border:1px solid rgba(193,127,58,.35);
+  border-radius:30px;padding:6px 16px;margin-bottom:26px;
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--copper-light);
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--copper-light);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(46px,6vw,82px);font-weight:900;line-height:.98;color:var(--white);margin-bottom:22px;}
+.hero-sub{font-size:17px;font-weight:300;color:var(--gray);line-height:1.8;margin-bottom:44px;max-width:460px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-stats{display:flex;gap:44px;margin-top:60px;padding-top:44px;border-top:1px solid rgba(193,127,58,.12);}
+.stat-n{font-family:'Fraunces',serif;font-size:36px;font-weight:700;background:linear-gradient(135deg,var(--copper),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.stat-l{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:4px;}
+.hero-callbox{
+  position:absolute;bottom:40px;right:40px;z-index:3;
+  background:rgba(10,22,40,.88);backdrop-filter:blur(12px);
+  border:1px solid rgba(193,127,58,.28);border-radius:12px;
+  padding:28px 32px;text-align:center;
+}
+.callbox-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--copper-light);margin-bottom:6px;}
+.callbox-num{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--white);text-decoration:none;display:block;margin-bottom:4px;}
+.callbox-sub{font-size:12px;color:var(--gray);}
+
+/* ── CARDS ── */
+.card{
+  background:var(--navy-card);border:1px solid rgba(193,127,58,.1);
+  border-radius:10px;padding:36px 30px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--copper),var(--gold));transform:scaleX(0);transition:transform .35s;transform-origin:left;}
+.card:hover{border-color:rgba(193,127,58,.28);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.25);}
+.card:hover::after{transform:scaleX(1);}
+.card-icon{font-size:32px;margin-bottom:18px;display:block;}
+
+/* GRID LAYOUTS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+
+/* ── SERVICES PAGE ── */
+.service-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+.stag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);background:rgba(193,127,58,.08);border:1px solid rgba(193,127,58,.2);padding:4px 10px;border-radius:4px;}
+
+/* ── ABOUT ── */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.stat-box{background:rgba(193,127,58,.08);border:1px solid rgba(193,127,58,.2);border-radius:8px;padding:20px;text-align:center;}
+.stat-box .v{font-family:'Fraunces',serif;font-size:30px;font-weight:700;background:linear-gradient(135deg,var(--copper),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-box .l{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:4px;}
+.val-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:24px;}
+.val-icon{width:42px;height:42px;flex-shrink:0;background:linear-gradient(135deg,var(--copper),var(--gold));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.val-item h4{font-family:'Fraunces',serif;font-size:17px;color:var(--white);margin-bottom:4px;}
+.val-item p{font-size:14px;color:var(--gray);line-height:1.7;}
+
+/* ── EMERGENCY ── */
+.emrg-hero{
+  background:linear-gradient(135deg,#1c0808,#2a1010);
+  border-bottom:1px solid rgba(224,82,82,.2);
+  padding:80px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:40px;
+}
+.emrg-hero h1{font-family:'Fraunces',serif;font-size:clamp(40px,5vw,66px);font-weight:900;color:var(--white);line-height:1.1;}
+.emrg-hero h1 em{font-style:normal;color:var(--red);}
+.emrg-callbox{background:var(--red);border-radius:12px;padding:36px 44px;text-align:center;animation:ePulse 3s infinite;}
+@keyframes ePulse{0%,100%{box-shadow:0 0 0 0 rgba(224,82,82,.4)}50%{box-shadow:0 0 0 18px rgba(224,82,82,0)}}
+.emrg-callbox .el{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px;}
+.emrg-callbox .en{font-family:'Fraunces',serif;font-size:36px;font-weight:900;color:#fff;text-decoration:none;display:block;margin-bottom:6px;}
+.emrg-callbox .es{font-size:13px;color:rgba(255,255,255,.8);}
+.response-bar{background:rgba(224,82,82,.07);border-top:1px solid rgba(224,82,82,.15);border-bottom:1px solid rgba(224,82,82,.15);padding:30px 56px;display:flex;gap:56px;flex-wrap:wrap;}
+.rb-item{display:flex;align-items:center;gap:12px;}
+.rb-num{font-family:'Fraunces',serif;font-size:34px;font-weight:700;color:var(--red);}
+.rb-txt{font-size:13px;color:var(--gray);line-height:1.5;}
+.emrg-card{background:var(--navy-mid);border:1px solid rgba(224,82,82,.12);border-radius:10px;padding:28px;transition:all .3s;}
+.emrg-card:hover{border-color:rgba(224,82,82,.35);transform:translateY(-3px);}
+.emrg-card .ei{font-size:28px;margin-bottom:14px;}
+.emrg-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--white);margin-bottom:8px;}
+.emrg-card p{font-size:14px;color:var(--gray);line-height:1.7;}
+
+/* ── REVIEWS ── */
+.rev-card{background:var(--navy-card);border:1px solid rgba(193,127,58,.1);border-radius:10px;padding:32px;position:relative;transition:transform .3s;}
+.rev-card:hover{transform:translateY(-4px);border-color:rgba(193,127,58,.28);}
+.qmark{font-family:'Fraunces',serif;font-size:64px;line-height:0;color:rgba(193,127,58,.15);position:absolute;top:22px;right:24px;}
+.stars{color:var(--gold);font-size:15px;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-size:15px;color:var(--cream);line-height:1.85;font-style:italic;margin-bottom:22px;}
+.reviewer{display:flex;align-items:center;gap:12px;}
+.rav{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--copper),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--navy);flex-shrink:0;}
+.rn{font-weight:600;color:var(--white);font-size:14px;}
+.rl{font-size:12px;color:var(--gray);}
+
+/* ── TIPS / BLOG PAGE ── */
+.tips-hero{
+  background:linear-gradient(135deg,var(--navy-mid),var(--steel));
+  border-bottom:1px solid rgba(193,127,58,.15);
+  padding:80px 56px 60px;
+}
+.tip-card{
+  background:var(--navy-card);border:1px solid rgba(193,127,58,.1);
+  border-radius:12px;overflow:hidden;transition:all .3s;cursor:default;
+}
+.tip-card:hover{transform:translateY(-5px);border-color:rgba(193,127,58,.3);box-shadow:0 20px 48px rgba(0,0,0,.3);}
+.tip-header{padding:28px 28px 0;display:flex;align-items:flex-start;gap:14px;}
+.tip-cat{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;flex-shrink:0;margin-bottom:10px;
+  display:inline-block;
+}
+.cat-water{background:rgba(76,175,252,.12);color:#7ec8e3;border:1px solid rgba(76,175,252,.2);}
+.cat-heat{background:rgba(240,184,74,.12);color:var(--gold);border:1px solid rgba(240,184,74,.2);}
+.cat-drain{background:rgba(76,175,132,.12);color:#72d4a8;border:1px solid rgba(76,175,132,.2);}
+.cat-safety{background:rgba(224,82,82,.12);color:#f09090;border:1px solid rgba(224,82,82,.2);}
+.cat-season{background:rgba(167,139,250,.12);color:#c4b5fd;border:1px solid rgba(167,139,250,.2);}
+.tip-icon-big{font-size:44px;line-height:1;}
+.tip-body{padding:0 28px 28px;}
+.tip-body h3{font-family:'Fraunces',serif;font-size:20px;color:var(--white);margin:10px 0 10px;line-height:1.3;}
+.tip-body p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:14px;}
+.tip-facts{margin-top:14px;border-top:1px solid rgba(193,127,58,.1);padding-top:14px;display:flex;flex-direction:column;gap:8px;}
+.fact{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--cream);line-height:1.6;}
+.fact-dot{width:6px;height:6px;border-radius:50%;background:var(--copper-light);flex-shrink:0;margin-top:6px;}
+.tip-warning{background:rgba(224,82,82,.07);border:1px solid rgba(224,82,82,.18);border-radius:7px;padding:12px 14px;margin-top:14px;font-size:13px;color:#f09090;line-height:1.6;}
+.tip-warning strong{color:var(--red);}
+.tips-cta{background:linear-gradient(135deg,var(--copper),var(--gold));padding:60px 56px;text-align:center;}
+.tips-cta h2{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.tips-cta p{font-size:16px;color:rgba(10,22,40,.7);margin-bottom:28px;}
+
+/* ── GALLERY ── */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 56px 56px;}
+.gal-cell{aspect-ratio:1;background:var(--navy-card);border:1px solid rgba(193,127,58,.07);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 24px;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
+.gal-cell::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(193,127,58,.05),transparent);opacity:0;transition:opacity .3s;}
+.gal-cell:hover{border-color:rgba(193,127,58,.3);}
+.gal-cell:hover::before{opacity:1;}
+.gal-cell.feat{grid-column:span 2;aspect-ratio:2;background:linear-gradient(135deg,var(--steel),var(--navy-mid));}
+.gal-icon{font-size:48px;margin-bottom:14px;}
+.gal-cell.feat .gal-icon{font-size:72px;}
+.gal-cell h3{font-family:'Fraunces',serif;font-size:20px;color:var(--white);margin-bottom:8px;}
+.gal-cell.feat h3{font-size:30px;background:linear-gradient(135deg,var(--copper),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gal-cell p{font-size:13px;color:var(--gray);line-height:1.6;}
+
+/* ── FAQ ── */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;}
+.faq-item{background:var(--navy-card);border:1px solid rgba(193,127,58,.1);border-radius:9px;padding:28px;cursor:pointer;transition:all .3s;}
+.faq-item:hover{border-color:rgba(193,127,58,.3);}
+.faq-item.open{border-color:rgba(193,127,58,.45);background:rgba(26,51,86,.25);}
+.faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;}
+.faq-q h4{font-family:'Fraunces',serif;font-size:17px;color:var(--white);font-weight:600;line-height:1.4;}
+.faq-tog{width:26px;height:26px;flex-shrink:0;background:rgba(193,127,58,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--copper-light);transition:transform .3s,background .3s;}
+.faq-item.open .faq-tog{transform:rotate(45deg);background:rgba(193,127,58,.28);}
+.faq-a{display:none;margin-top:14px;font-size:14px;color:var(--gray);line-height:1.8;border-top:1px solid rgba(193,127,58,.1);padding-top:14px;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── CONTACT ── */
+.contact-layout{display:grid;grid-template-columns:1fr 1.5fr;min-height:calc(100vh - 73px);}
+.contact-left{background:var(--navy-mid);padding:72px 52px;border-right:1px solid rgba(193,127,58,.1);}
+.ci-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:32px;}
+.ci-ico{width:46px;height:46px;flex-shrink:0;background:rgba(193,127,58,.1);border:1px solid rgba(193,127,58,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.ci-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--copper-light);margin-bottom:4px;}
+.ci-val{font-size:16px;color:var(--white);font-weight:500;text-decoration:none;transition:color .3s;}
+.ci-val:hover{color:var(--copper-light);}
+.ci-sub{font-size:12px;color:var(--gray);margin-top:2px;}
+.contact-right{padding:72px 56px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;}
+.fg{display:flex;flex-direction:column;gap:7px;}
+.fg.full{grid-column:span 2;}
+.fg label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--copper-light);}
+.fg input,.fg select,.fg textarea{background:var(--navy-mid);border:1px solid rgba(193,127,58,.18);border-radius:5px;padding:13px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .3s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--copper);box-shadow:0 0 0 3px rgba(193,127,58,.1);}
+.fg select option{background:var(--navy-mid);}
+.fg textarea{resize:vertical;min-height:110px;}
+.success-msg{display:none;background:rgba(76,175,132,.12);border:1px solid rgba(76,175,132,.35);border-radius:8px;padding:14px 20px;color:#72d4a8;font-size:14px;margin-top:18px;text-align:center;}
+.success-msg.show{display:block;}
+
+/* ── AREAS STRIP ── */
+.areas-strip{background:linear-gradient(135deg,var(--copper),var(--gold));padding:56px;text-align:center;}
+.areas-strip h2{font-family:'Fraunces',serif;font-size:34px;color:var(--navy);font-weight:700;margin-bottom:8px;}
+.areas-strip p{color:rgba(10,22,40,.65);font-size:15px;margin-bottom:22px;}
+.areas-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.achip{background:rgba(10,22,40,.14);border:1px solid rgba(10,22,40,.22);border-radius:30px;padding:7px 18px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);font-weight:600;}
+
+/* ── FOOTER ── */
+footer{background:#060e18;border-top:1px solid rgba(193,127,58,.12);padding:56px 56px 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
+.footer-brand p{font-size:14px;color:var(--gray);line-height:1.8;margin-top:14px;max-width:270px;}
+.fc h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--copper-light);margin-bottom:18px;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.fc ul li a{font-size:13px;color:var(--gray);text-decoration:none;transition:color .3s;cursor:pointer;}
+.fc ul li a:hover{color:var(--copper-light);}
+.footer-bottom{border-top:1px solid rgba(193,127,58,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray);}
+.lbadge{background:rgba(193,127,58,.1);border:1px solid rgba(193,127,58,.2);border-radius:4px;padding:3px 9px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);margin-left:8px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:14px 22px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:60px 22px;}
+  .section{padding:60px 22px;}
+  .about-layout{grid-template-columns:1fr;gap:40px;}
+  .contact-layout{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .faq-grid{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr;padding:0 22px 40px;}
+  .gal-cell.feat{grid-column:span 1;aspect-ratio:1;}
+  .emrg-hero{padding:60px 22px;}
+  .response-bar{padding:24px 22px;gap:24px;}
+  .tips-hero{padding:60px 22px 40px;}
+  .tips-cta{padding:40px 22px;}
+  .areas-strip{padding:40px 22px;}
+  footer{padding:40px 22px 22px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:14px;text-align:center;}
+  .contact-left,.contact-right{padding:52px 22px;}
+  .form-grid{grid-template-columns:1fr;}
+  .fg.full{grid-column:span 1;}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="logo-mark">🔧</div>
+    <div>
+      <div class="logo-text-top">Curtis King Plumbing</div>
+      <div class="logo-text-bot">Sevierville, TN</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('services')">Services</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('emergency')">Emergency</a></li>
+    <li><a onclick="showPage('gallery')">Our Work</a></li>
+    <li><a onclick="showPage('tips')">Home Tips</a></li>
+    <li><a onclick="showPage('faq')">FAQ</a></li>
+    <li><a onclick="showPage('contact')" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div id="mobileMenu">
+  <ul>
+    <li><a onclick="showPage('home');closeMenu()">Home</a></li>
+    <li><a onclick="showPage('services');closeMenu()">Services</a></li>
+    <li><a onclick="showPage('about');closeMenu()">About</a></li>
+    <li><a onclick="showPage('emergency');closeMenu()" style="color:#f09090;">Emergency</a></li>
+    <li><a onclick="showPage('gallery');closeMenu()">Our Work</a></li>
+    <li><a onclick="showPage('tips');closeMenu()" style="color:var(--gold);">Home Tips</a></li>
+    <li><a onclick="showPage('faq');closeMenu()">FAQ</a></li>
+    <li><a onclick="showPage('contact');closeMenu()" style="color:var(--copper-light);font-weight:600;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 1 · HOME
+═══════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="pulse"></span>Serving Sevierville · TN · 24/7</div>
+      <h1 class="h1">Expert<br>Plumbing<br><em style="font-style:italic;background:linear-gradient(135deg,var(--copper),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Done Right.</em></h1>
+      <p class="hero-sub">Curtis King Plumbing delivers precision craftsmanship and honest service to homes and businesses across East Tennessee — from routine repairs to full-scale emergencies.</p>
+      <div class="hero-actions">
+        <button class="btn btn-p" onclick="showPage('contact')">Get Free Estimate</button>
+        <button class="btn btn-o" onclick="showPage('services')">View Services</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">20+</div><div class="stat-l">Years Experience</div></div>
+        <div><div class="stat-n">5K+</div><div class="stat-l">Jobs Completed</div></div>
+        <div><div class="stat-n">24/7</div><div class="stat-l">Emergency Line</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-inner">
+        <svg class="pipe-art" width="420" height="480" viewBox="0 0 420 480" fill="none">
+          <rect x="40" y="80" width="340" height="48" rx="24" fill="#c17f3a"/>
+          <rect x="40" y="200" width="340" height="48" rx="24" fill="#c17f3a" opacity=".8"/>
+          <rect x="40" y="320" width="340" height="48" rx="24" fill="#c17f3a" opacity=".6"/>
+          <rect x="160" y="80" width="48" height="288" rx="24" fill="#f0b84a" opacity=".7"/>
+          <rect x="260" y="80" width="48" height="288" rx="24" fill="#f0b84a" opacity=".5"/>
+          <circle cx="184" cy="224" r="24" fill="#f0b84a"/>
+          <circle cx="284" cy="104" r="14" fill="#c17f3a"/>
+          <circle cx="284" cy="344" r="14" fill="#c17f3a"/>
+        </svg>
+      </div>
+      <div class="hero-callbox">
+        <div class="callbox-lbl">Call Anytime</div>
+        <a href="tel:8654298602" class="callbox-num">865-429-8602</a>
+        <div class="callbox-sub">📍 Sevierville, TN 37862</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section" style="background:var(--navy-mid);border-top:1px solid rgba(193,127,58,.08);border-bottom:1px solid rgba(193,127,58,.08);">
+    <div class="lbl">Why Curtis King</div>
+    <h2 class="h2">Trusted Across <span class="accent">East Tennessee</span></h2>
+    <div class="rule"></div>
+    <div class="grid-4" style="margin-top:44px;">
+      <div class="card"><span class="card-icon">🏆</span><h3 class="h3">Licensed & Insured</h3><p class="body-text" style="font-size:14px;">Fully licensed, bonded and insured for your total peace of mind on every job.</p></div>
+      <div class="card"><span class="card-icon">⚡</span><h3 class="h3">Fast Response</h3><p class="body-text" style="font-size:14px;">We aim to be at your door within the hour for emergency calls — any time, any day.</p></div>
+      <div class="card"><span class="card-icon">💰</span><h3 class="h3">Upfront Pricing</h3><p class="body-text" style="font-size:14px;">Clear, honest quotes before we start. No hidden charges, ever.</p></div>
+      <div class="card"><span class="card-icon">🛡️</span><h3 class="h3">Guaranteed Work</h3><p class="body-text" style="font-size:14px;">We stand behind every repair and installation with a full workmanship guarantee.</p></div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="lbl">What We Do</div>
+    <h2 class="h2">Complete Plumbing <span class="accent">Solutions</span></h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:520px;">From dripping faucets to full remodels and round-the-clock emergencies — we handle it all.</p>
+    <div class="grid-auto" style="margin-top:44px;">
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">🚿</span><h3 class="h3">Drain Cleaning</h3><p class="body-text" style="font-size:14px;">Hydro-jetting and snaking for every blockage size.</p></div>
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">🔥</span><h3 class="h3">Water Heaters</h3><p class="body-text" style="font-size:14px;">Install, repair and replace — including tankless.</p></div>
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">💧</span><h3 class="h3">Leak Detection</h3><p class="body-text" style="font-size:14px;">Non-invasive technology to find hidden leaks fast.</p></div>
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">⚙️</span><h3 class="h3">Pipe Repair</h3><p class="body-text" style="font-size:14px;">Burst, corroded, or noisy pipes — sorted professionally.</p></div>
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">🏠</span><h3 class="h3">Remodeling</h3><p class="body-text" style="font-size:14px;">Full bath & kitchen plumbing upgrades done right.</p></div>
+      <div class="card" style="cursor:pointer;" onclick="showPage('services')"><span class="card-icon">🚽</span><h3 class="h3">Toilet Repair</h3><p class="body-text" style="font-size:14px;">Leaks, clogs, running toilets — and full replacements.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:44px;"><button class="btn btn-p" onclick="showPage('services')">See All Services →</button></div>
+  </section>
+
+  <!-- TIPS TEASER -->
+  <section class="section" style="background:var(--navy-mid);border-top:1px solid rgba(193,127,58,.08);border-bottom:1px solid rgba(193,127,58,.08);">
+    <div class="lbl">Homeowner Knowledge</div>
+    <h2 class="h2">Free Tips to <span class="accent">Protect Your Home</span></h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:560px;margin-bottom:44px;">We believe an informed homeowner is a safe homeowner. Browse our practical guides on plumbing care, seasonal maintenance, and spotting problems early.</p>
+    <div class="grid-3" style="gap:20px;">
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-water">Water Safety</span><div class="tip-icon-big">💧</div></div></div>
+        <div class="tip-body"><h3>Know Where Your Shutoff Is</h3><p>The single most important thing every homeowner should know. In a flood emergency, every second counts.</p></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-season">Seasonal</span><div class="tip-icon-big">❄️</div></div></div>
+        <div class="tip-body"><h3>Winter Pipe Protection</h3><p>Tennessee winters can freeze exposed pipes. A few minutes of prep saves thousands in repairs.</p></div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-drain">Drains</span><div class="tip-icon-big">🚿</div></div></div>
+        <div class="tip-body"><h3>What Not to Flush or Pour</h3><p>Most serious blockages are 100% avoidable. Here's what should never go down your drains.</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;"><button class="btn btn-p" onclick="showPage('tips')">Read All Home Tips →</button></div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section">
+    <div class="lbl">Customer Reviews</div>
+    <h2 class="h2">What Our <span class="accent">Customers Say</span></h2>
+    <div class="rule"></div>
+    <div class="grid-3" style="margin-top:44px;">
+      <div class="rev-card"><div class="qmark">"</div><div class="stars">★★★★★</div><p class="rev-text">Curtis came out the same day I called with a burst pipe. Professional, fast, and a very fair price. I won't use anyone else for plumbing in Sevierville.</p><div class="reviewer"><div class="rav">J</div><div><div class="rn">James Holloway</div><div class="rl">Sevierville, TN</div></div></div></div>
+      <div class="rev-card"><div class="qmark">"</div><div class="stars">★★★★★</div><p class="rev-text">Had my water heater replaced last fall. The whole job was done in under 3 hours and they left the area spotless. Couldn't be happier with the result.</p><div class="reviewer"><div class="rav">S</div><div><div class="rn">Sandra Mae</div><div class="rl">Gatlinburg, TN</div></div></div></div>
+      <div class="rev-card"><div class="qmark">"</div><div class="stars">★★★★★</div><p class="rev-text">Best plumber I've hired. Fixed a stubborn hidden leak under the kitchen that two other plumbers missed. Honest pricing and explained everything clearly.</p><div class="reviewer"><div class="rav">T</div><div><div class="rn">Tom & Rachel Pierce</div><div class="rl">Pigeon Forge, TN</div></div></div></div>
+    </div>
+  </section>
+
+  <div class="areas-strip">
+    <h2>Proudly Serving East Tennessee</h2>
+    <p>We cover Sevierville and the surrounding communities:</p>
+    <div class="areas-list">
+      <span class="achip">Sevierville</span><span class="achip">Gatlinburg</span><span class="achip">Pigeon Forge</span><span class="achip">Kodak</span><span class="achip">Dandridge</span><span class="achip">Newport</span><span class="achip">Jefferson City</span><span class="achip">Morristown</span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default;">
+          <div class="logo-mark">🔧</div>
+          <div><div class="logo-text-top">Curtis King Plumbing</div><div class="logo-text-bot">Sevierville, Tennessee</div></div>
+        </div>
+        <p>Expert plumbing for East Tennessee homes and businesses — built on honesty, skill, and community.</p>
+      </div>
+      <div class="fc"><h4>Services</h4><ul><li><a onclick="showPage('services')">Drain Cleaning</a></li><li><a onclick="showPage('services')">Water Heaters</a></li><li><a onclick="showPage('services')">Leak Detection</a></li><li><a onclick="showPage('services')">Pipe Repair</a></li><li><a onclick="showPage('services')">Remodeling</a></li></ul></div>
+      <div class="fc"><h4>Company</h4><ul><li><a onclick="showPage('about')">About Us</a></li><li><a onclick="showPage('gallery')">Our Work</a></li><li><a onclick="showPage('tips')">Home Tips</a></li><li><a onclick="showPage('faq')">FAQ</a></li><li><a onclick="showPage('emergency')">Emergency</a></li></ul></div>
+      <div class="fc"><h4>Contact</h4><ul><li><a href="tel:8654298602" style="color:var(--copper-light);">865-429-8602</a></li><li style="color:var(--gray);font-size:12px;list-style:none;">Sevierville, TN 37862</li><li style="color:var(--gray);font-size:12px;list-style:none;margin-top:6px;">Mon–Fri 7am–7pm</li><li style="color:var(--gray);font-size:12px;list-style:none;">Sat 8am–5pm</li><li style="color:var(--copper-light);font-size:12px;list-style:none;">24/7 Emergency Line</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Curtis King Plumbing. All rights reserved.</span><div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span><span class="lbadge">TN Certified</span></div></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 2 · SERVICES
+═══════════════════════════════════════ -->
+<div id="page-services" class="page">
+  <section class="section">
+    <div class="lbl">What We Offer</div>
+    <h2 class="h2">Full-Service Plumbing <span class="accent">Expertise</span></h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:520px;">From minor repairs to complete system overhauls — every job handled with precision and care.</p>
+    <div class="grid-auto" style="margin-top:48px;">
+      <div class="card"><span class="card-icon">🚿</span><h3 class="h3">Drain Cleaning</h3><p class="body-text" style="font-size:14px;">Hydro-jetting, electric snaking, and camera inspection for everything from slow kitchen drains to blocked main sewer lines.</p><div class="service-tags"><span class="stag">Hydro-Jetting</span><span class="stag">Snaking</span><span class="stag">Camera Inspection</span></div></div>
+      <div class="card"><span class="card-icon">🔥</span><h3 class="h3">Water Heater Services</h3><p class="body-text" style="font-size:14px;">Installation, repair and replacement for traditional tank, tankless and hybrid water heaters. We help you choose the most efficient option.</p><div class="service-tags"><span class="stag">Tankless</span><span class="stag">Traditional Tank</span><span class="stag">Hybrid</span></div></div>
+      <div class="card"><span class="card-icon">💧</span><h3 class="h3">Leak Detection & Repair</h3><p class="body-text" style="font-size:14px;">Non-invasive detection equipment locates hidden leaks behind walls and under slabs before they become costly structural damage.</p><div class="service-tags"><span class="stag">Slab Leaks</span><span class="stag">Wall Leaks</span><span class="stag">Non-Invasive</span></div></div>
+      <div class="card"><span class="card-icon">🚽</span><h3 class="h3">Toilet Repair & Replacement</h3><p class="body-text" style="font-size:14px;">Clogged, running, leaking or rocking toilets — we fix all brands and offer complete replacements with high-efficiency models.</p><div class="service-tags"><span class="stag">Running Toilets</span><span class="stag">Clog Removal</span><span class="stag">Full Replacement</span></div></div>
+      <div class="card"><span class="card-icon">⚙️</span><h3 class="h3">Pipe Repair & Replacement</h3><p class="body-text" style="font-size:14px;">Burst pipes, corroded lines, galvanized replacement and noisy plumbing. Quality materials, minimal disruption to walls and flooring.</p><div class="service-tags"><span class="stag">Burst Pipes</span><span class="stag">Repiping</span><span class="stag">PEX / Copper</span></div></div>
+      <div class="card"><span class="card-icon">🏠</span><h3 class="h3">Bathroom & Kitchen Remodels</h3><p class="body-text" style="font-size:14px;">We handle all rough-in and finish plumbing for bathroom and kitchen renovations, working alongside your contractor seamlessly.</p><div class="service-tags"><span class="stag">Rough-In</span><span class="stag">Fixture Install</span><span class="stag">Finish Work</span></div></div>
+      <div class="card"><span class="card-icon">🏢</span><h3 class="h3">Sewer Line Services</h3><p class="body-text" style="font-size:14px;">Root intrusion, bellied pipes, deteriorated lines — we diagnose and repair using trenchless technology where possible.</p><div class="service-tags"><span class="stag">Trenchless</span><span class="stag">Root Removal</span><span class="stag">Line Replacement</span></div></div>
+      <div class="card"><span class="card-icon">🔩</span><h3 class="h3">Faucet & Fixture Services</h3><p class="body-text" style="font-size:14px;">Dripping faucets, worn valves, loose fixtures — we repair or replace all kitchen and bathroom fixtures including premium brands.</p><div class="service-tags"><span class="stag">Faucet Repair</span><span class="stag">Valve Replacement</span><span class="stag">All Brands</span></div></div>
+      <div class="card"><span class="card-icon">🏗️</span><h3 class="h3">New Construction Plumbing</h3><p class="body-text" style="font-size:14px;">We work with builders on residential and commercial new builds — delivering reliable rough-in and trim-out plumbing on schedule.</p><div class="service-tags"><span class="stag">Residential</span><span class="stag">Commercial</span><span class="stag">New Build</span></div></div>
+    </div>
+  </section>
+  <div class="areas-strip">
+    <h2>Ready to Schedule?</h2>
+    <p>Call us or request an estimate online — we respond fast.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="tel:8654298602" class="btn btn-p" style="background:var(--navy);color:var(--cream);">📞 865-429-8602</a>
+      <button class="btn btn-p" onclick="showPage('contact')">Request Estimate</button>
+    </div>
+  </div>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · Sevierville, TN 37862 · 865-429-8602</span><div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span></div></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 3 · ABOUT
+═══════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <section class="section">
+    <div class="lbl">Our Story</div>
+    <h2 class="h2">Built on Trust, <span class="accent">Backed by Experience</span></h2>
+    <div class="rule"></div>
+    <div class="about-layout" style="margin-top:56px;">
+      <div>
+        <div class="card" style="margin-bottom:24px;">
+          <span style="font-size:72px;display:block;margin-bottom:20px;filter:drop-shadow(0 0 16px rgba(193,127,58,.3));">🔧</span>
+          <h3 class="h3">Curtis King Plumbing</h3>
+          <p class="body-text" style="font-size:15px;margin-top:8px;">Founded in the heart of Sevierville, Curtis King Plumbing has spent over two decades building a reputation for honest work, expert craftsmanship, and community-first values. We treat every home we enter with respect — because in Sevierville, your neighbors are our neighbors.</p>
+          <div class="grid-2" style="margin-top:28px;gap:14px;">
+            <div class="stat-box"><div class="v">20+</div><div class="l">Years in Business</div></div>
+            <div class="stat-box"><div class="v">5,000+</div><div class="l">Jobs Completed</div></div>
+            <div class="stat-box"><div class="v">100%</div><div class="l">Licensed & Insured</div></div>
+            <div class="stat-box"><div class="v">24/7</div><div class="l">Emergency Line</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="body-text" style="margin-bottom:28px;">Curtis King started this company with one goal: to give East Tennessee families a plumber they could genuinely count on. No hidden fees, no upselling, no shortcuts. Just good work done right the first time.</p>
+        <p class="body-text" style="margin-bottom:40px;">Today that commitment continues with a team of trained, background-checked technicians who share the same values. Whether it's a dripping faucet or a full-system emergency, we show up prepared and leave your home better than we found it.</p>
+        <div class="val-item"><div class="val-icon">🏆</div><div><h4>Integrity First</h4><p>Honest assessments and fair prices. We tell you what you need — and what you don't.</p></div></div>
+        <div class="val-item"><div class="val-icon">⚡</div><div><h4>Reliability You Can Count On</h4><p>We answer calls, arrive on schedule, and keep you informed from start to finish.</p></div></div>
+        <div class="val-item"><div class="val-icon">🛡️</div><div><h4>Quality That Lasts</h4><p>Premium parts, proven methods, and a workmanship guarantee on every job.</p></div></div>
+        <div class="val-item"><div class="val-icon">🤝</div><div><h4>Community Roots</h4><p>We live and work in East Tennessee. Our reputation is built neighbor by neighbor.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--navy-mid);border-top:1px solid rgba(193,127,58,.08);">
+    <div class="lbl">Credentials</div>
+    <h2 class="h2">Licensed, Certified & <span class="accent">Ready</span></h2>
+    <div class="rule"></div>
+    <div class="grid-4" style="margin-top:44px;">
+      <div class="card"><span class="card-icon">📋</span><h3 class="h3">State Licensed</h3><p class="body-text" style="font-size:14px;">Fully licensed plumbing contractor in Tennessee. All work meets or exceeds local code.</p></div>
+      <div class="card"><span class="card-icon">🛡️</span><h3 class="h3">Fully Insured</h3><p class="body-text" style="font-size:14px;">Comprehensive general liability and workers' compensation coverage on every job.</p></div>
+      <div class="card"><span class="card-icon">✅</span><h3 class="h3">Background Checked</h3><p class="body-text" style="font-size:14px;">Every technician is thoroughly screened before entering your home.</p></div>
+      <div class="card"><span class="card-icon">🎓</span><h3 class="h3">Ongoing Training</h3><p class="body-text" style="font-size:14px;">Our team stays current on the latest plumbing technology and best practices.</p></div>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · 865-429-8602 · Sevierville, TN</span><button class="btn btn-p" onclick="showPage('contact')" style="font-size:11px;padding:10px 18px;">Get In Touch</button></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 4 · EMERGENCY
+═══════════════════════════════════════ -->
+<div id="page-emergency" class="page">
+  <div class="emrg-hero">
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#f09090;margin-bottom:14px;">⚠ 24/7 Emergency Plumbing</div>
+      <h1 style="font-family:'Fraunces',serif;font-size:clamp(38px,5vw,64px);font-weight:900;color:var(--white);line-height:1.1;">Plumbing Crisis?<br><em style="font-style:normal;color:var(--red);">We're On Our Way.</em></h1>
+      <p style="font-size:16px;color:var(--gray);margin-top:16px;max-width:460px;line-height:1.8;">Don't wait. Plumbing emergencies cause thousands in damage every hour. Call Curtis King Plumbing now — we respond fast, any time, day or night.</p>
+    </div>
+    <div class="emrg-callbox">
+      <div class="el">Emergency Hotline</div>
+      <a href="tel:8654298602" class="en">865-429-8602</a>
+      <div class="es">Available 24 Hours · 7 Days a Week</div>
+      <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.75);">📍 Sevierville, TN 37862</div>
+    </div>
+  </div>
+  <div class="response-bar">
+    <div class="rb-item"><span class="rb-num">60</span><span class="rb-txt">Minute<br>Response Goal</span></div>
+    <div class="rb-item"><span class="rb-num">24/7</span><span class="rb-txt">Always<br>Available</span></div>
+    <div class="rb-item"><span class="rb-num">0</span><span class="rb-txt">Hidden After-<br>Hours Fees</span></div>
+    <div class="rb-item"><span class="rb-num">1</span><span class="rb-txt">Call Away —<br>Any Time</span></div>
+  </div>
+  <section class="section">
+    <div class="lbl">Common Emergencies</div>
+    <h2 class="h2">Every <span class="accent">Plumbing Crisis</span> Handled</h2>
+    <div class="rule"></div>
+    <div class="grid-auto" style="margin-top:44px;">
+      <div class="emrg-card"><div class="ei">💥</div><h3>Burst Pipes</h3><p>A burst pipe floods your home in minutes. We shut off the water, assess the damage, and make repairs fast to minimize losses.</p></div>
+      <div class="emrg-card"><div class="ei">🌊</div><h3>Sewage Backup</h3><p>Raw sewage backup is a health hazard. We respond immediately to clear blockages and restore proper drainage.</p></div>
+      <div class="emrg-card"><div class="ei">🚰</div><h3>Major Water Leaks</h3><p>Uncontrolled leaks from supply lines require immediate attention. We find and stop the leak before structural damage occurs.</p></div>
+      <div class="emrg-card"><div class="ei">🔥</div><h3>Water Heater Failure</h3><p>A leaking or failed water heater needs urgent care. We diagnose and resolve, with same-day replacement available.</p></div>
+      <div class="emrg-card"><div class="ei">🚫</div><h3>No Running Water</h3><p>Sudden loss of water pressure in your home is an emergency. We diagnose the cause and restore service quickly.</p></div>
+      <div class="emrg-card"><div class="ei">🪠</div><h3>Severe Toilet Overflow</h3><p>Overflowing toilets cause water damage and sanitation hazards. We clear the blockage and prevent further damage.</p></div>
+    </div>
+  </section>
+  <section style="background:rgba(224,82,82,.05);border-top:1px solid rgba(224,82,82,.12);padding:60px 56px;">
+    <h2 class="h2" style="margin-bottom:32px;">What to Do <span class="accent">While You Wait</span></h2>
+    <div class="grid-4">
+      <div style="display:flex;gap:14px;align-items:flex-start;"><span style="background:rgba(224,82,82,.18);color:#f09090;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:13px;font-family:'DM Mono',monospace;">1</span><div><div style="color:var(--white);font-weight:600;margin-bottom:4px;font-size:15px;">Shut Off the Water</div><div style="color:var(--gray);font-size:13px;line-height:1.7;">Locate your main shutoff valve and close it immediately.</div></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;"><span style="background:rgba(224,82,82,.18);color:#f09090;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:13px;font-family:'DM Mono',monospace;">2</span><div><div style="color:var(--white);font-weight:600;margin-bottom:4px;font-size:15px;">Turn Off the Water Heater</div><div style="color:var(--gray);font-size:13px;line-height:1.7;">Prevent your heater from running dry and causing additional damage.</div></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;"><span style="background:rgba(224,82,82,.18);color:#f09090;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:13px;font-family:'DM Mono',monospace;">3</span><div><div style="color:var(--white);font-weight:600;margin-bottom:4px;font-size:15px;">Move Valuables</div><div style="color:var(--gray);font-size:13px;line-height:1.7;">Remove electronics and documents from the affected area quickly.</div></div></div>
+      <div style="display:flex;gap:14px;align-items:flex-start;"><span style="background:rgba(224,82,82,.18);color:#f09090;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:13px;font-family:'DM Mono',monospace;">4</span><div><div style="color:var(--white);font-weight:600;margin-bottom:4px;font-size:15px;">Call Us Immediately</div><div style="color:var(--gray);font-size:13px;line-height:1.7;"><a href="tel:8654298602" style="color:var(--copper-light);text-decoration:none;">865-429-8602</a> — we'll be on our way.</div></div></div>
+    </div>
+  </section>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · Emergency: 865-429-8602</span><div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span></div></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 5 · GALLERY
+═══════════════════════════════════════ -->
+<div id="page-gallery" class="page">
+  <section class="section" style="padding-bottom:40px;">
+    <div class="lbl">Portfolio</div>
+    <h2 class="h2">Our Work <span class="accent">Speaks</span> For Itself</h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:520px;">Every job is an opportunity to demonstrate our commitment to quality. Here's a look at what we do every day across East Tennessee.</p>
+  </section>
+  <div class="gal-grid">
+    <div class="gal-cell feat"><div class="gal-icon">🏆</div><h3>Complete Bathroom Remodel</h3><p>Full rough-in and finish plumbing for a master bath renovation in Gatlinburg — new shower system, dual vanity, freestanding tub. Completed in 4 days.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🔥</div><h3>Tankless Water Heater</h3><p>Navien NPE-240A2 installation — endless hot water at 96% efficiency for a Sevierville family home.</p></div>
+    <div class="gal-cell"><div class="gal-icon">💧</div><h3>Slab Leak Detection</h3><p>Non-invasive thermal imaging used to locate and repair a slab leak without tearing up the floor.</p></div>
+    <div class="gal-cell"><div class="gal-icon">⚙️</div><h3>Full Repipe</h3><p>Replaced aging galvanized steel pipes with modern PEX throughout a 1960s home in Pigeon Forge.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🏗️</div><h3>New Construction</h3><p>Rough-in plumbing for a 4-bedroom custom build in Sevierville. Passed first-time inspection.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🔩</div><h3>Kitchen Upgrade</h3><p>Installed new kitchen sink, disposal, pot filler and dishwasher feed as part of a full kitchen remodel.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🌊</div><h3>Sewer Line Repair</h3><p>Trenchless pipe lining used to repair 60 feet of collapsed sewer line — no digging required.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🚿</div><h3>Hydro-Jetting</h3><p>Cleared a severely blocked main drain at a Sevierville commercial property using high-pressure jetting.</p></div>
+    <div class="gal-cell"><div class="gal-icon">🏠</div><h3>Vacation Rental Ready</h3><p>Full plumbing service, inspection and tune-up for a 6-unit cabin rental property in the Smokies.</p></div>
+  </div>
+  <div style="text-align:center;padding:0 56px 80px;"><p class="body-text" style="margin-bottom:22px;">Want work like this done in your home?</p><button class="btn btn-p" onclick="showPage('contact')">Request a Free Estimate</button></div>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · 865-429-8602 · Sevierville, TN</span><div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span></div></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 6 · HOME TIPS (NEW)
+═══════════════════════════════════════ -->
+<div id="page-tips" class="page">
+  <div class="tips-hero">
+    <div class="lbl">Homeowner Knowledge Hub</div>
+    <h2 class="h2">Protect Your Home —<br><span class="accent">Know Your Plumbing</span></h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:600px;">You don't have to be a plumber to keep your home safe. These straightforward tips from our team at Curtis King Plumbing will help you prevent problems, spot issues early, and know when it's time to call a pro.</p>
+  </div>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="lbl">Water Safety</div>
+    <h3 class="h2" style="font-size:clamp(24px,3vw,36px);">Water & Leak <span class="accent">Awareness</span></h3>
+    <div class="rule"></div>
+    <div class="grid-3" style="margin-top:36px;">
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-water">Water Safety</span><div class="tip-icon-big">🚰</div></div></div>
+        <div class="tip-body">
+          <h3>Find Your Main Shutoff Valve — Now</h3>
+          <p>Every homeowner should know where their main water shutoff is before an emergency happens. In a burst pipe situation, every second the water runs adds hundreds of dollars in damage.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Shutoffs are usually near the water meter, under the sink, or in the basement/crawl space</div>
+            <div class="fact"><span class="fact-dot"></span>Test it once a year — old valves can seize and fail when you need them most</div>
+            <div class="fact"><span class="fact-dot"></span>Label it with bright tape so every family member can find it fast</div>
+            <div class="fact"><span class="fact-dot"></span>Ball valves (lever handle) are more reliable than gate valves (round knob)</div>
+          </div>
+          <div class="tip-warning"><strong>Pro tip:</strong> If your shutoff is a round knob style (gate valve) and feels stiff, consider having it replaced. Seized gate valves are one of the most common reasons water can't be shut off in an emergency.</div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-water">Water Safety</span><div class="tip-icon-big">📊</div></div></div>
+        <div class="tip-body">
+          <h3>Monitor Your Water Bill for Hidden Leaks</h3>
+          <p>A slow leak you can't see could be wasting thousands of gallons a month. Your water bill is often the first clue.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>A running toilet can waste 200 gallons of water per day without you knowing</div>
+            <div class="fact"><span class="fact-dot"></span>Compare this month's bill to the same month last year — a spike of 20%+ warrants investigation</div>
+            <div class="fact"><span class="fact-dot"></span>Do the "meter test": shut off everything in the house and watch if your water meter still moves</div>
+            <div class="fact"><span class="fact-dot"></span>A dripping faucet at one drop per second wastes over 3,000 gallons per year</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-water">Water Safety</span><div class="tip-icon-big">🌡️</div></div></div>
+        <div class="tip-body">
+          <h3>Ideal Home Water Pressure: What You Should Know</h3>
+          <p>Water pressure that's too high silently destroys your pipes, fixtures and appliances from the inside over time.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Ideal home water pressure is between 40–60 PSI</div>
+            <div class="fact"><span class="fact-dot"></span>Pressure above 80 PSI will gradually damage washers, gaskets, and pipe joints</div>
+            <div class="fact"><span class="fact-dot"></span>A pressure gauge from any hardware store costs $10–15 and screws onto any hose bib</div>
+            <div class="fact"><span class="fact-dot"></span>A pressure reducing valve (PRV) can be installed to protect your whole home if needed</div>
+          </div>
+          <div class="tip-warning"><strong>Call us if:</strong> you have banging pipes (water hammer), constantly running toilets, or your water pressure has recently changed significantly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="lbl">Drain Care</div>
+    <h3 class="h2" style="font-size:clamp(24px,3vw,36px);">Drains & <span class="accent">Sewer Lines</span></h3>
+    <div class="rule"></div>
+    <div class="grid-3" style="margin-top:36px;">
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-drain">Drains</span><div class="tip-icon-big">🚫</div></div></div>
+        <div class="tip-body">
+          <h3>What Never to Put Down Your Drain</h3>
+          <p>The majority of serious drain blockages are 100% preventable. Most homeowners are accidentally destroying their pipes with everyday items.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span><strong style="color:var(--cream);">Grease and oil:</strong> solidifies in pipes and causes major blockages over time</div>
+            <div class="fact"><span class="fact-dot"></span><strong style="color:var(--cream);">"Flushable" wipes:</strong> do not break down — they clog sewer lines badly</div>
+            <div class="fact"><span class="fact-dot"></span><strong style="color:var(--cream);">Coffee grounds:</strong> accumulate in traps and cause slow drains</div>
+            <div class="fact"><span class="fact-dot"></span><strong style="color:var(--cream);">Eggshells:</strong> stick to pipe walls and collect debris</div>
+            <div class="fact"><span class="fact-dot"></span><strong style="color:var(--cream);">Medications:</strong> harmful to the water supply — use a pharmacy take-back program</div>
+          </div>
+          <div class="tip-warning"><strong>Remember:</strong> toilets are designed for only three things — human waste, toilet paper, and water. Everything else belongs in the trash.</div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-drain">Drains</span><div class="tip-icon-big">🛁</div></div></div>
+        <div class="tip-body">
+          <h3>Keeping Your Shower & Tub Drains Clear</h3>
+          <p>Hair is the number one cause of bathroom drain clogs. A little prevention goes a long way.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Use a mesh drain strainer — a $5 investment that prevents $200+ service calls</div>
+            <div class="fact"><span class="fact-dot"></span>Once a month, pour a kettle of boiling water slowly down the drain to dissolve soap buildup</div>
+            <div class="fact"><span class="fact-dot"></span>Baking soda followed by white vinegar, then hot water, is an effective natural drain cleaner</div>
+            <div class="fact"><span class="fact-dot"></span>Avoid chemical drain cleaners — they corrode pipes over time and are a temporary fix at best</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-drain">Drains</span><div class="tip-icon-big">🌳</div></div></div>
+        <div class="tip-body">
+          <h3>Tree Roots & Sewer Lines — A Hidden Danger</h3>
+          <p>In Tennessee, mature trees are everywhere — and their roots actively seek out moisture, including the water in your sewer line.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Root intrusion is a leading cause of sewer line damage in older East Tennessee homes</div>
+            <div class="fact"><span class="fact-dot"></span>Warning signs: gurgling sounds from toilets, slow drains throughout the house, sewage smell</div>
+            <div class="fact"><span class="fact-dot"></span>Trees don't need to be directly over the pipe — roots can travel 20–30 feet horizontally</div>
+            <div class="fact"><span class="fact-dot"></span>A periodic camera inspection every 3–5 years can catch intrusion before it becomes a full collapse</div>
+          </div>
+          <div class="tip-warning"><strong>Don't wait:</strong> root intrusion that's caught early can be cleared. Left too long, it collapses the pipe entirely — a much more costly repair.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="lbl">Seasonal Care</div>
+    <h3 class="h2" style="font-size:clamp(24px,3vw,36px);">Seasonal <span class="accent">Maintenance</span></h3>
+    <div class="rule"></div>
+    <div class="grid-3" style="margin-top:36px;">
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-season">Seasonal</span><div class="tip-icon-big">❄️</div></div></div>
+        <div class="tip-body">
+          <h3>Winterizing Your Pipes in Tennessee</h3>
+          <p>While Tennessee winters are mild, temperatures in Sevierville and the Smokies can dip below freezing — sometimes for days at a time. Exposed pipes are at real risk.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Insulate any pipes in unheated spaces: garage, crawl space, attic, or exterior walls</div>
+            <div class="fact"><span class="fact-dot"></span>During a hard freeze: let a thin trickle of water run from faucets on exterior walls overnight</div>
+            <div class="fact"><span class="fact-dot"></span>Know how to shut off and drain your outdoor hose bibs before the first frost</div>
+            <div class="fact"><span class="fact-dot"></span>Keep cabinet doors under sinks on exterior walls open to let warm air circulate</div>
+            <div class="fact"><span class="fact-dot"></span>If leaving your home for more than a few days in winter, keep the heat at 55°F minimum</div>
+          </div>
+          <div class="tip-warning"><strong>Vacation rentals:</strong> Smoky Mountain cabins often sit vacant in cold snaps. A single burst pipe can cause tens of thousands in water damage. Ask us about freeze protection solutions.</div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-season">Seasonal</span><div class="tip-icon-big">🌸</div></div></div>
+        <div class="tip-body">
+          <h3>Spring Plumbing Checklist</h3>
+          <p>Spring is the best time to inspect your plumbing after winter and catch small issues before they grow.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Check all exposed pipes for small cracks that may have formed during cold snaps</div>
+            <div class="fact"><span class="fact-dot"></span>Inspect your water heater for corrosion, leaks or sediment buildup (drain and flush it annually)</div>
+            <div class="fact"><span class="fact-dot"></span>Test your sump pump if you have one — spring rain season is when you need it most</div>
+            <div class="fact"><span class="fact-dot"></span>Reconnect and test outdoor hose bibs and irrigation systems</div>
+            <div class="fact"><span class="fact-dot"></span>Clean out gutters and check downspouts are draining well away from the foundation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-heat">Water Heater</span><div class="tip-icon-big">🔥</div></div></div>
+        <div class="tip-body">
+          <h3>Water Heater Maintenance — Extend Its Life</h3>
+          <p>The average water heater lasts 8–12 years. With a little annual maintenance, you can add years to its lifespan and improve efficiency.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Flush your tank annually to remove sediment — sediment at the bottom causes inefficiency and premature failure</div>
+            <div class="fact"><span class="fact-dot"></span>Test the pressure relief valve once a year (lift and release the lever — water should flow briefly)</div>
+            <div class="fact"><span class="fact-dot"></span>Set temperature to 120°F — hot enough to kill bacteria, cool enough to prevent scalding and save energy</div>
+            <div class="fact"><span class="fact-dot"></span>Inspect the anode rod every 3 years — it sacrifices itself to prevent tank corrosion</div>
+          </div>
+          <div class="tip-warning"><strong>Signs to replace:</strong> rusty water, rumbling noises, water pooling around the base, or age over 10 years. Don't wait for a full failure — it usually happens at the worst time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="lbl">Safety Essentials</div>
+    <h3 class="h2" style="font-size:clamp(24px,3vw,36px);">Safety Tips <span class="accent">Every Family Needs</span></h3>
+    <div class="rule"></div>
+    <div class="grid-2" style="margin-top:36px;">
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-safety">Safety</span><div class="tip-icon-big">🚨</div></div></div>
+        <div class="tip-body">
+          <h3>Carbon Monoxide & Gas Line Awareness</h3>
+          <p>Gas plumbing issues are rare but serious. Every homeowner should know the basics.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>If you smell gas (rotten egg odor): don't flip any light switches, leave the house immediately, and call your gas company</div>
+            <div class="fact"><span class="fact-dot"></span>Install a CO detector near every sleeping area — carbon monoxide is odorless and invisible</div>
+            <div class="fact"><span class="fact-dot"></span>Never use a gas oven or outdoor grill to heat your home</div>
+            <div class="fact"><span class="fact-dot"></span>Have your gas lines inspected if you notice hissing sounds, dead patches in your lawn above buried lines, or unexplained headaches</div>
+          </div>
+          <div class="tip-warning"><strong>Emergency:</strong> If you suspect a gas leak, evacuate immediately and call 911 and your gas utility before calling a plumber.</div>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-header"><div><span class="tip-cat cat-safety">Safety</span><div class="tip-icon-big">🧒</div></div></div>
+        <div class="tip-body">
+          <h3>Plumbing Safety for Families with Kids</h3>
+          <p>Young children are particularly vulnerable to plumbing-related hazards. Here's how to keep them safe.</p>
+          <div class="tip-facts">
+            <div class="fact"><span class="fact-dot"></span>Set your water heater to 120°F max — water at 140°F causes third-degree burns in just 5 seconds</div>
+            <div class="fact"><span class="fact-dot"></span>Install anti-scald faucet covers and scald guard devices in kids' bathrooms</div>
+            <div class="fact"><span class="fact-dot"></span>Teach children never to flush anything other than toilet paper</div>
+            <div class="fact"><span class="fact-dot"></span>Keep toilet lids closed — young toddlers can fall in; also prevents toys being flushed</div>
+            <div class="fact"><span class="fact-dot"></span>Lock cleaning product cabinets under sinks — many drain cleaners are highly caustic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tips-cta">
+    <h2>Have a Plumbing Concern?</h2>
+    <p>Knowledge is powerful, but some things need a professional. We're always here to help.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:8654298602" class="btn btn-p" style="background:var(--navy);color:var(--cream);text-decoration:none;">📞 865-429-8602</a>
+      <button class="btn btn-p" onclick="showPage('contact')">Request a Free Estimate</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="border:none;padding:0;">
+      <span>© 2025 Curtis King Plumbing · Sevierville, TN 37862 · 865-429-8602</span>
+      <div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 7 · FAQ
+═══════════════════════════════════════ -->
+<div id="page-faq" class="page">
+  <section class="section">
+    <div class="lbl">Common Questions</div>
+    <h2 class="h2">Frequently Asked <span class="accent">Questions</span></h2>
+    <div class="rule"></div>
+    <p class="body-text" style="max-width:520px;">Answers to what our customers ask most often. Don't see yours? Give us a call at <a href="tel:8654298602" style="color:var(--copper-light);">865-429-8602</a>.</p>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Do you offer free estimates?</h4><span class="faq-tog">+</span></div><div class="faq-a">Yes! We provide free, no-obligation estimates for most plumbing projects. We'll visit your home, assess the situation, and give you a clear written quote before any work begins. No pressure, no surprises.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Are you available for plumbing emergencies?</h4><span class="faq-tog">+</span></div><div class="faq-a">Absolutely. We operate a 24/7 emergency line at 865-429-8602. Whether it's 2am on a holiday or a Sunday afternoon, call us. We aim to respond within 60 minutes for emergencies in the Sevierville area.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Are your plumbers licensed and insured in Tennessee?</h4><span class="faq-tog">+</span></div><div class="faq-a">Yes. Curtis King Plumbing is fully licensed in the State of Tennessee and carries comprehensive general liability and workers' compensation insurance. You're fully protected on every job.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>How do I know if I have a hidden water leak?</h4><span class="faq-tog">+</span></div><div class="faq-a">Common signs include unexpected spikes in your water bill, the sound of running water when nothing is on, low water pressure, damp spots on walls or ceilings, or musty odors. We use advanced leak detection tools and can find issues non-invasively.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>What brands do you work with?</h4><span class="faq-tog">+</span></div><div class="faq-a">We work with all major brands. For water heaters: Rheem, Bradford White, Navien, Rinnai and others. For fixtures: Moen, Delta, Kohler, American Standard and more. We can also source parts for less common brands.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Do you do commercial plumbing as well?</h4><span class="faq-tog">+</span></div><div class="faq-a">Yes. We serve residential and light commercial properties — restaurants, retail businesses, rental properties, vacation cabins and small offices. Contact us to discuss your commercial project.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>How long does a water heater replacement take?</h4><span class="faq-tog">+</span></div><div class="faq-a">A standard tank replacement typically takes 2–3 hours. Tankless installations may take 4–6 hours. We can usually complete same-day replacements and often have immediate availability.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>What areas do you serve?</h4><span class="faq-tog">+</span></div><div class="faq-a">We are based in Sevierville, TN and serve all of East Tennessee including Gatlinburg, Pigeon Forge, Kodak, Dandridge, Jefferson City, Newport and Morristown. Not sure if we cover you? Call 865-429-8602.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Do you offer warranties on your work?</h4><span class="faq-tog">+</span></div><div class="faq-a">Yes. All labor is backed by our workmanship guarantee, and manufacturer warranties apply to any parts and equipment we install. We'll always explain the specific terms before starting any job.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><h4>Can I supply my own parts?</h4><span class="faq-tog">+</span></div><div class="faq-a">You're welcome to, but we recommend letting us source them. We have access to trade-grade parts at better prices, and parts we supply are covered by our guarantee. Customer-supplied parts that fail wouldn't be covered under warranty.</div></div>
+    </div>
+  </section>
+  <div class="areas-strip">
+    <h2>Still Have Questions?</h2>
+    <p>We're always happy to talk through any plumbing concern you have.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="tel:8654298602" class="btn btn-p" style="background:var(--navy);color:var(--cream);text-decoration:none;">📞 865-429-8602</a>
+      <button class="btn btn-p" onclick="showPage('contact')">Send a Message</button>
+    </div>
+  </div>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · 865-429-8602 · Sevierville, TN</span></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 8 · CONTACT
+═══════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-layout">
+    <div class="contact-left">
+      <div class="lbl">Reach Out</div>
+      <h2 class="h2">Let's Talk <span class="accent">Plumbing</span></h2>
+      <div class="rule"></div>
+      <p class="body-text" style="margin-bottom:8px;font-size:15px;">Request a free estimate, schedule a service call, or just ask a question. We respond promptly to every inquiry.</p>
+      <div style="margin-top:40px;">
+        <div class="ci-item"><div class="ci-ico">📞</div><div><div class="ci-lbl">Phone</div><a href="tel:8654298602" class="ci-val">865-429-8602</a><div class="ci-sub">24/7 Emergency Available</div></div></div>
+        <div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><span class="ci-val" style="cursor:default;">Sevierville, TN 37862</span><div class="ci-sub">Serving all of East Tennessee</div></div></div>
+        <div class="ci-item"><div class="ci-ico">🕐</div><div><div class="ci-lbl">Business Hours</div><span class="ci-val" style="cursor:default;">Mon – Fri: 7am – 7pm</span><div class="ci-sub">Saturday: 8am – 5pm</div><div class="ci-sub" style="color:var(--copper-light);margin-top:3px;">Emergency line: 24/7</div></div></div>
+      </div>
+      <div style="margin-top:44px;background:rgba(193,127,58,.08);border:1px solid rgba(193,127,58,.2);border-radius:9px;padding:22px;">
+        <div class="lbl" style="margin-bottom:8px;">Emergency?</div>
+        <p style="color:var(--gray);font-size:13px;line-height:1.7;margin-bottom:16px;">For plumbing emergencies, call us directly for the fastest response — don't wait for a form reply.</p>
+        <a href="tel:8654298602" class="btn btn-p" style="font-size:11px;padding:12px 20px;text-decoration:none;display:inline-block;">📞 Call Now: 865-429-8602</a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="lbl">Request Service</div>
+      <h2 class="h2">Get a <span class="accent">Free Estimate</span></h2>
+      <div class="rule"></div>
+      <div class="form-grid">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John" id="fname"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" id="lname"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(865) 000-0000" id="phone"></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" id="email"></div>
+        <div class="fg"><label>Service Needed</label>
+          <select id="service">
+            <option value="" disabled selected>Select a service...</option>
+            <option>Drain Cleaning</option>
+            <option>Water Heater Repair / Replacement</option>
+            <option>Leak Detection & Repair</option>
+            <option>Toilet Repair / Replacement</option>
+            <option>Pipe Repair / Replacement</option>
+            <option>Bathroom Remodel Plumbing</option>
+            <option>Kitchen Remodel Plumbing</option>
+            <option>Sewer Line Service</option>
+            <option>New Construction</option>
+            <option>Emergency Service</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Best Time to Call</label>
+          <select id="calltime">
+            <option value="" disabled selected>Select...</option>
+            <option>Morning (7am–12pm)</option>
+            <option>Afternoon (12pm–5pm)</option>
+            <option>Evening (5pm–7pm)</option>
+            <option>Any Time</option>
+          </select>
+        </div>
+        <div class="fg full"><label>Service Address</label><input type="text" placeholder="Your address in Sevierville or surrounding area" id="address"></div>
+        <div class="fg full"><label>Describe the Issue</label><textarea placeholder="Describe your plumbing issue or project in as much detail as you can..." id="message"></textarea></div>
+      </div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <button class="btn btn-p" onclick="submitForm()">Send Request →</button>
+        <p style="font-size:13px;color:var(--gray);line-height:1.5;">We respond within 2 business hours.<br>Emergencies: call 865-429-8602 directly.</p>
+      </div>
+      <div class="success-msg" id="successMsg">✅ Thank you! Your request has been received. We'll be in touch shortly.</div>
+    </div>
+  </div>
+  <footer><div class="footer-bottom" style="border:none;padding:0;"><span>© 2025 Curtis King Plumbing · Sevierville, TN 37862 · 865-429-8602</span><div><span class="lbadge">Licensed</span><span class="lbadge">Insured</span></div></div></footer>
+</div>
+
+<script>
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleFaq(el){el.classList.toggle('open');}
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=m.style.display==='none'||m.style.display===''?'block':'none';
+}
+function closeMenu(){document.getElementById('mobileMenu').style.display='none';}
+function submitForm(){
+  const f=document.getElementById('fname').value;
+  const p=document.getElementById('phone').value;
+  const s=document.getElementById('service').value;
+  if(!f||!p||!s){alert('Please fill in your name, phone number, and service needed.');return;}
+  const msg=document.getElementById('successMsg');
+  msg.classList.add('show');
+  ['fname','lname','phone','email','service','calltime','address','message'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+  setTimeout(()=>msg.classList.remove('show'),6000);
+}
+</script>
+</body>
+</html>
